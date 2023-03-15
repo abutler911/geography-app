@@ -11,13 +11,13 @@ function getCountryInfo(country) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       result.innerHTML = `
-      <img src="${data[0].flags.svg}" class="flag-img">
-      <h2>${data[0].name.common}</h2>
-      <h5>"${data[0].name.official}"</h5>
-      
-      <hr>
+      <div class="card" >
+      <img src="${data[0].flags.svg}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${data[0].name.common}</h5>
+        <h5>"${data[0].name.official}"</h5>
+        <hr>
       <br>
       <h4>Capitol City</h4>
       <h5>${data[0].capital}</h5>
@@ -28,6 +28,13 @@ function getCountryInfo(country) {
     <h5>${data[0].subregion}</h5>
     <h4>Population</h4>
     <h5>${data[0].population}</h5>
+        
+      </div>
+    </div>
+
+
+
+      
         `;
     });
 }
